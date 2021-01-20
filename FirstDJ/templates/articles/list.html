@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}'verjin norutyunner'{% endblock %}
+
+{% block cont %}
+    {% if latest_art_list %}
+        {% for i in latest_art_list %}
+            <a href="{% url 'articles:detail' i.id %}">{{i.article_title}}</a>
+        {% endfor %}
+    {% else %}
+        not articles
+    {% endif %}
+    {% block js %}
+    <div class = 'animat_1' id = 'animat_1'></div>
+    <script src="{% static 'three.min.js' %}"></script>
+    <script src="{% static 'vanta.halo.min.js' %}"></script>
+    <script src="{% static 'anim_1.js' %}"></script>
+
+    {% endblock %}
+{% endblock %}
